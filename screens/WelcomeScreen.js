@@ -20,9 +20,15 @@ const WelcomeScreen = () => {
       <Text style={styles.subtitle}>
         The only person you are destined to become is the person you decide to be.
       </Text>
-      <TouchableOpacity style={styles.button}>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('Login')}
+      >
         <Text style={styles.buttonText}>Sign Up</Text>
       </TouchableOpacity>
+
+
       <TouchableOpacity style={[styles.button, styles.buttonOutline]}>
         <Text style={[styles.buttonText, styles.buttonOutlineText]}>Create Account</Text>
       </TouchableOpacity>

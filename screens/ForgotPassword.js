@@ -1,175 +1,115 @@
-import * as React from "react";
-import { StyleSheet, View, Text, Pressable } from "react-native";
-import { Image } from "expo-image";
-import GroupComponent from "../components/GroupComponent";
-import ForgotPassword2 from "../components/ForgotPassword2";
-import LoginContainer1 from "../components/LoginContainer1";
-import { useNavigation } from "@react-navigation/native";
-import { FontFamily, Border, Color, FontSize } from "../GlobalStyles";
+import React, { useState } from 'react';
+import { StyleSheet, View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 
-const ForgotPassword = () => {
-  const navigation = useNavigation();
+const ForgotPassword = ({ navigation }) => {
+  const [email, setEmail] = useState('');
 
   return (
-    <View style={styles.forgotPassword}>
-      <View style={styles.forgotPasswordChild} />
-      <Text style={[styles.enterYourEmail, styles.sdgp1141Typo]}>
-        Enter your Email and send the code.
-      </Text>
-      <Text style={[styles.forgotPassword1, styles.sdgp1141Typo]}>
-        Forgot password
-      </Text>
-      <GroupComponent
-        email="Phone number"
-        sophatleatnintrealive="Enter your email"
-        groupViewPosition="absolute"
-        groupViewTop={295}
-        groupViewLeft={27}
-        groupViewWidth={359}
-        groupViewHeight={67}
-        rectangleViewBorderRadius={5}
-        rectangleViewBorderColor="#c6c6c6"
-        sophatleatnintrealiveColor="#9e9e9e"
+    <View style={styles.container}>
+    <Image
+        source={require("../assets/ellipse-1405.png")}
+        style={styles.backgroundEllipse}
       />
-      <ForgotPassword2
-        forgotPasswordPosition="absolute"
-        forgotPasswordTop={539}
-        forgotPasswordLeft={272}
-      />
-      <LoginContainer1
-        buttonText={require("../assets/iconmonstrgithub1-1.png")}
-        actionText="Send Code"
-        componentSize={require("../assets/gitlabseeklogocom-1.png")}
-        showGithub={false}
-        showGitlab={false}
-        showWith={false}
-        loginButtonPosition="absolute"
-        loginButtonWidth={310}
-        loginButtonHeight={204}
-        loginButtonTop={417}
-        loginButtonRight="unset"
-        loginButtonBottom="unset"
-        loginButtonLeft={27}
-        rectangleViewBackgroundColor="#46a5fc"
-        rectangleViewHeight="22.06%"
-        rectangleViewBottom="77.94%"
-        githubHeight="22.06%"
-        githubTop="57.84%"
-        groupViewTop={11}
-        groupViewHeight={23}
-        gitHubTop="8.7%"
-        loginLeft="37.6%"
-        loginColor="#fff"
-        loginTop="5.39%"
-        gitlabHeight="22.06%"
-        gitlabTop="57.84%"
-        groupViewTop1={11}
-        groupViewHeight1={22}
-        gitLabTop="9.05%"
-        withHeight="9.31%"
-        withTop="32.84%"
-        withBottom="57.84%"
-        lineViewTop="51.58%"
-        lineViewBottom="45.79%"
-        lineViewTop1="51.58%"
-        lineViewBottom1="45.79%"
-      />
-      <View style={[styles.sdgp114Wrapper, styles.enterYourEmailLayout]}>
-        <Pressable
-          style={styles.sdgp114}
-          onPress={() => navigation.navigate("Login")}
-        >
-          <Text style={[styles.sdgp1141, styles.sdgp1141Typo]}>
-            @2024 SDGP 114
-          </Text>
-        </Pressable>
+      <Text style={styles.title}>Forgot password</Text>
+      <Text style={styles.subtitle}>Enter your Email and send the code.</Text>
+      
+      <View style={styles.inputContainer}>
+       <Text style={styles.inputLabel}>Email Address</Text>
+        <TextInput
+          style={styles.input}
+          onChangeText={setEmail}
+          value={email}
+          placeholder="Enter your email"
+          keyboardType="email-address"
+        />
       </View>
-      <Image
-        style={styles.forgotPasswordItem}
-        contentFit="cover"
-        source={require("../assets/ellipse-1407.png")}
-      />
+
+      <TouchableOpacity style={styles.button} onPress={() => {/* Handle sending code */}}>
+        <Text style={styles.buttonText}>Send Code</Text>
+      </TouchableOpacity>
+
+      <Text style={styles.footerText}>@2024 SDGP 114</Text>
+      
+      {/* Footer Image */}
+      {/* <Image
+        style={styles.footerImage}
+        source={require("../assets/your-footer-image.png")}
+        resizeMode="cover"
+      /> */}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  sdgp1141Typo: {
-    textAlign: "left",
-    fontFamily: FontFamily.manropeSemiBold,
-    fontWeight: "600",
-  },
-  enterYourEmailLayout: {
-    height: "2.13%",
-    position: "absolute",
-  },
-  forgotPasswordChild: {
-    top: 71,
-    left: 20,
-    borderRadius: Border.br_xs,
-    width: 372,
-    height: 759,
-    position: "absolute",
-    backgroundColor: Color.colorAliceblue_300,
-  },
-  enterYourEmail: {
-    width: "57.73%",
-    top: "27.23%",
-    left: "7.49%",
-    color: Color.colorDarkgray_200,
-    fontSize: FontSize.size_sm,
-    textAlign: "left",
-    fontFamily: FontFamily.manropeSemiBold,
-    fontWeight: "600",
-    height: "2.13%",
-    position: "absolute",
-  },
-  forgotPassword1: {
-    height: "3.8%",
-    width: "47.83%",
-    top: "22.99%",
-    left: "6.52%",
-    fontSize: FontSize.size_6xl,
-    color: Color.colorBlack,
-    textAlign: "left",
-    fontFamily: FontFamily.manropeSemiBold,
-    fontWeight: "600",
-    position: "absolute",
-  },
-  sdgp1141: {
-    height: "100%",
-    color: Color.colorDarkgray_200,
-    fontSize: FontSize.size_sm,
-    textAlign: "left",
-    fontFamily: FontFamily.manropeSemiBold,
-    fontWeight: "600",
-    width: "100%",
-  },
-  sdgp114: {
-    left: "0%",
-    top: "0%",
-    position: "absolute",
-  },
-  sdgp114Wrapper: {
-    width: "26.57%",
-    top: "97.9%",
-    right: "39.37%",
-    bottom: "-0.02%",
-    left: "34.06%",
-  },
-  forgotPasswordItem: {
-    top: 671,
-    left: 0,
-    width: 414,
-    height: 182,
-    position: "absolute",
-  },
-  forgotPassword: {
+  container: {
     flex: 1,
-    height: 856,
-    overflow: "hidden",
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F0F8FF', // Alice blue color
+  },
+   backgroundEllipse: {
+    position: "absolute",
     width: "100%",
-    backgroundColor: Color.colorAliceblue_300,
+    height: "40%",
+    top:700,
+    marginTop:5,  
+
+  },
+    inputLabel: {
+    alignSelf: 'flex-start',
+    color: '#A9A9A9', // Dark gray color
+    fontSize: 16,
+    marginBottom: 5,
+    
+  },
+  title: {
+    fontSize: 22,
+    fontWeight: '600',
+    color: '#000000',
+    marginBottom: 10,
+  },
+  subtitle: {
+    fontSize: 16,
+    color: '#A9A9A9', // Dark gray color
+    marginBottom: 20,
+  },
+  inputContainer: {
+    width: '90%',
+    marginBottom: 20,
+  },
+  input: {
+    height: 50,
+    borderColor: '#C6C6C6', // Light gray border
+    borderWidth: 1,
+    borderRadius: 5,
+    paddingHorizontal: 10,
+    fontSize: 16,
+  },
+  button: {
+    width: '90%',
+    height: 50,
+    backgroundColor: '#46A5FC', // Blue color
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 5,
+    marginBottom: 20,
+  },
+  buttonText: {
+    fontSize: 18,
+    color: '#FFFFFF', // White color
+    fontWeight: '600',
+  },
+  footerText: {
+    fontSize: 14,
+    color: '#A9A9A9', // Dark gray color
+    position: 'absolute',
+    bottom: 10,
+  },
+  footerImage: {
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
+    height: 182, // Set height according to your image aspect ratio
   },
 });
 

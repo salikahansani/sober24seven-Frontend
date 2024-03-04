@@ -8,7 +8,7 @@ import { useNavigation } from "@react-navigation/native";
 import LoginButton from "../components/LoginButton";
 import { Color, FontSize, FontFamily, Border } from "../GlobalStyles";
 
-const Frame = () => {
+const passwordChange = () => {
   const navigation = useNavigation();
 
   return (
@@ -266,4 +266,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Frame;
+export default passwordChange;

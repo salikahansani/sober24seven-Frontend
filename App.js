@@ -92,7 +92,7 @@ const App = () => {
       <NavigationContainer>
         {hideSplashScreen ? (
           <Stack.Navigator
-            initialRouteName="Login"
+            initialRouteName="ForgotPassword"
             screenOptions={{ headerShown: false }}
           >
             <Stack.Screen
@@ -116,7 +116,7 @@ const App = () => {
               options={{ headerShown: false }}
             />
             <Stack.Screen
-              name="Frame"
+              name="passwordChange"
               component={Frame}
               options={{ headerShown: false }}
             />
