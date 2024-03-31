@@ -2,25 +2,27 @@ const Stack = createNativeStackNavigator();
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { useFonts } from "expo-font";
-import WelcomeScreen from "./screens/WelcomeScreen";
-import Login from "./screens/Login";
-import SignUp from "./screens/SignUp";
-import ForgotPassword from "./screens/ForgotPassword";
-import Frame from "./screens/Frame";
-import Questionnaire from "./screens/Questionnaire";
-import DashboardForUser from "./screens/DashboardForUser";
-import DashboardForUser1 from "./screens/DashboardForUser1";
-import RoutingSchedule from "./screens/RoutingSchedule";
-import Rewards from "./screens/Rewards";
-import Sidebar from "./screens/Sidebar";
-import Notifications from "./screens/Notifications";
-import Settings from "./screens/Settings";
-import AboutUs from "./screens/AboutUs";
-import Profile from "./screens/Profile";
-import LocationTracker from "./screens/LocationTracker";
-import Community from "./screens/Community";
-import ProgressChart from "./screens/ProgressChart";
-import ForgotPassword1 from "./screens/ForgotPassword1";
+import WelcomeScreen from "./Screens/WelcomeScreen";
+import Login from "./Screens/Login";
+import SignUp from "./Screens/SignUp";
+import ForgotPassword from "./Screens/ForgotPassword";
+import Frame from "./Screens/Frame";
+import Questionnaire from "./Screens/Questionnaire";
+import DashboardForUser from "./Screens/DashboardForUser";
+import DashboardForUser1 from "./Screens/DashboardForUser1";
+import RoutingSchedule from "./Screens/RoutingSchedule";
+import Rewards from "./Screens/Rewards";
+import Sidebar from "./Screens/Sidebar";
+import Notifications from "./Screens/Notifications";
+import Settings from "./Screens/Settings";
+import AboutUs from "./Screens/AboutUs";
+import Profile from "./Screens/Profile";
+import LocationTracker from "./Screens/LocationTracker";
+import Community from "./Screens/Community";
+import ProgressChart from "./Screens/ProgressChart";
+import ForgotPassword1 from "./Screens/sendCode";
+import ResetPasswordScreen from "./Screens/handleResetPassword"; 
+
 import LoginContainer1 from "./components/LoginContainer1";
 import GroupComponent from "./components/GroupComponent";
 import RememberMe from "./components/RememberMe";
@@ -92,7 +94,7 @@ const App = () => {
       <NavigationContainer>
         {hideSplashScreen ? (
           <Stack.Navigator
-            initialRouteName="ForgotPassword"
+            initialRouteName="DashboardForUser"
             screenOptions={{ headerShown: false }}
           >
             <Stack.Screen
@@ -115,6 +117,16 @@ const App = () => {
               component={ForgotPassword}
               options={{ headerShown: false }}
             />
+             <Stack.Screen
+              name="sendCode"
+              component={ForgotPassword1}
+              options={{ headerShown: false }}
+            />
+              <Stack.Screen
+              name="ResetPassword"
+              component={ResetPasswordScreen}
+              options={{ headerShown: false }}
+              />
             <Stack.Screen
               name="passwordChange"
               component={Frame}
@@ -185,11 +197,7 @@ const App = () => {
               component={ProgressChart}
               options={{ headerShown: false }}
             />
-            <Stack.Screen
-              name="ForgotPassword1"
-              component={ForgotPassword1}
-              options={{ headerShown: false }}
-            />
+           
           </Stack.Navigator>
         ) : null}
       </NavigationContainer>

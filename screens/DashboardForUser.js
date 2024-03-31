@@ -1,140 +1,56 @@
 import * as React from "react";
-import { Image } from "expo-image";
-import { StyleSheet, Text, View, Pressable } from "react-native";
-import ForgotPassword2 from "../components/ForgotPassword2";
+import { StyleSheet, Text, View, Pressable, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import UserGroupImage from "../components/UserGroupImage";
-import { Border, Color, FontFamily, FontSize } from "../GlobalStyles";
+import { Border, Color, FontFamily, FontSize ,icon} from "../GlobalStyles";
 
 const DashboardForUser = () => {
   const navigation = useNavigation();
 
+  const CategoryBox = ({ title, description, onPress }) => (
+    <Pressable style={styles.categoryBox} onPress={onPress}>
+      <Text style={styles.categoryTitle}>{title}</Text>
+      <Text style={styles.categoryDescription}>{description}</Text>
+    </Pressable>
+  );
+
   return (
-    <View style={styles.dashboardForUser1}>
-      <Image
-        style={styles.vectorIcon}
-        contentFit="cover"
-        source={require("../assets/vector.png")}
-      />
-      <ForgotPassword2
-        forgotPasswordPosition="absolute"
-        forgotPasswordTop={593}
-        forgotPasswordLeft={272}
-      />
-      <Image
-        style={styles.dashboardForUser1Child}
-        contentFit="cover"
-        source={require("../assets/ellipse-7.png")}
-      />
-      <View style={[styles.dashboardForUser1Item, styles.dashboardLayout]} />
-      <View style={[styles.dashboardForUser1Inner, styles.dashboardLayout]} />
-      <View style={[styles.rectangleView, styles.rectangleViewLayout]} />
-      <View
-        style={[styles.dashboardForUser1Child1, styles.rectangleViewLayout]}
-      />
-      <View
-        style={[styles.dashboardForUser1Child2, styles.dashboardChildLayout]}
-      />
-      <View style={styles.dashboardForUser1Child3} />
-      <View
-        style={[styles.dashboardForUser1Child4, styles.dashboardChildLayout]}
-      />
-      <View
-        style={[styles.dashboardForUser1Child5, styles.dashboardChildLayout]}
-      />
-      <Text style={[styles.routingSchedule, styles.rewardsTypo]}>
-        Routing schedule
-      </Text>
-      <Text style={[styles.descriptionDeCatgorie, styles.descriptionTypo1]}>
-        Description de catégorie ...
-      </Text>
-      <Text style={[styles.progressChart, styles.communityTypo]}>
-        Progress Chart
-      </Text>
-      <Text style={[styles.descriptionDeCatgorie1, styles.descriptionTypo1]}>
-        Description de catégorie ...
-      </Text>
-      <Text style={[styles.community, styles.communityTypo]}>Community</Text>
-      <Text style={[styles.rewards, styles.rewardsTypo]}>Rewards</Text>
-      <Text style={[styles.descriptionDeCatgorie2, styles.descriptionTypo]}>
-        Description de catégorie ...
-      </Text>
-      <Text style={[styles.descriptionDeCatgorie3, styles.descriptionTypo]}>
-        Description de catégorie ...
-      </Text>
-      <Image
-        style={[styles.contrat1Icon, styles.hotel11Layout]}
-        contentFit="cover"
-        source={require("../assets/contrat-1.png")}
-      />
-      <Image
-        style={[styles.hotel11, styles.hotel11Layout]}
-        contentFit="cover"
-        source={require("../assets/hotel-1-1.png")}
-      />
-      <Image
-        style={[styles.livraisonRapide1Icon, styles.iconPosition1]}
-        contentFit="cover"
-        source={require("../assets/livraisonrapide-1.png")}
-      />
-      <View style={[styles.sdgp114Wrapper, styles.sdgp114Layout]}>
-        <Pressable
-          style={styles.sdgp114}
-          onPress={() => navigation.navigate("Login")}
-        >
-          <Text style={[styles.sdgp1141, styles.sdgpTypo]}>@2024 SDGP 114</Text>
-        </Pressable>
+    <ScrollView style={styles.dashboardForUser}>
+      <View style={styles.header}>
+        {/* Header content, like back arrow, title, and dots */}
       </View>
-      <Image
-        style={[styles.image2Icon, styles.image2IconPosition]}
-        contentFit="cover"
-        source={require("../assets/image-2.png")}
-      />
-      <View
-        style={[styles.dashboardForUser1Child6, styles.image2IconPosition]}
-      />
-      <Image
-        style={[styles.home03Icon, styles.iconPosition]}
-        contentFit="cover"
-        source={require("../assets/home03.png")}
-      />
-      <UserGroupImage
-        userGroupImageUserGroup={require("../assets/usergroup.png")}
-        userGroupIconPosition="absolute"
-        userGroupIconWidth={56}
-        userGroupIconHeight={54}
-        userGroupIconTop={760}
-        userGroupIconLeft={206}
-      />
-      <Image
-        style={[styles.analyticsIcon, styles.iconPosition]}
-        contentFit="cover"
-        source={require("../assets/analytics.png")}
-      />
-      <Image
-        style={styles.fileIcon}
-        contentFit="cover"
-        source={require("../assets/file.png")}
-      />
-      <Image
-        style={styles.image29Icon}
-        contentFit="cover"
-        source={require("../assets/image-29.png")}
-      />
-      <View style={[styles.sdgp114Container, styles.sdgp114Layout]}>
-        <Pressable
-          style={styles.sdgp114}
-          onPress={() => navigation.navigate("Login")}
-        >
-          <Text style={[styles.sdgp1143, styles.sdgpTypo]}>@2024 SDGP 114</Text>
-        </Pressable>
+      <View style={styles.content}>
+        <CategoryBox
+          title="Routing Schedule"
+          description="Description de catégorie ..."
+          // icon={require('../assets/image-1@3x.png')}
+          onPress={() => navigation.navigate("RoutingSchedule")}
+          
+        />
+        <CategoryBox
+          title="Progress Chart"
+          description="Description de catégorie ..."
+          onPress={() => navigation.navigate("ProgressChart")}
+        />
+        <CategoryBox
+          title="Community"
+          description="Description de catégorie ..."
+          onPress={() => navigation.navigate("Community")}
+        />
+        <CategoryBox
+          title="Rewards"
+          description="Description de catégorie ..."
+          onPress={() => navigation.navigate("Rewards")}
+        />
       </View>
-    </View>
+      <View style={styles.footer}>
+        {/* Footer content, like navigation icons */}
+      </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
-  dashboardLayout: {
+    dashboardLayout: {
     width: 368,
     borderRadius: Border.br_xs,
     left: 23,
@@ -389,6 +305,42 @@ const styles = StyleSheet.create({
     height: 856,
     overflow: "hidden",
     width: "100%",
+  },
+
+  categoryBox: {
+    margin: 10,
+    padding: 20,
+    borderRadius: 10,
+    backgroundColor: '#FFFFFF', // Replace with appropriate color
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  categoryTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#333', // Replace with appropriate color
+  },
+  categoryDescription: {
+    fontSize: 14,
+    color: '#666', // Replace with appropriate color
+  },
+  dashboardForUser: {
+    flex: 1,
+    backgroundColor: '#f0f0f0', // Replace with appropriate background color
+  },
+  header: {
+    paddingTop: 50,
+    backgroundColor: '#fff', // Set header background color
+  },
+  content: {
+    padding: 16,
+  },
+  footer: {
+    paddingBottom: 30,
+    backgroundColor: '#fff', // Set footer background color
   },
 });
 

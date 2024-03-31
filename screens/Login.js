@@ -1,15 +1,22 @@
 import React from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  TextInput,
-  SafeAreaView,
-} from 'react-native';
+import {StyleSheet,View,Text,Image,TouchableOpacity,TextInput,SafeAreaView,} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import SignUp from './SignUp';
+
 
 const Login = () => {
+  const navigation = useNavigation(); 
+
+
+  const handleForgotPassword = () => {
+    navigation.navigate('ForgotPassword');
+  };
+
+  const SignUp = () => {
+    navigation.navigate('SignUp');
+  };
+
+
   return (
     <SafeAreaView style={styles.container}>
       {/* Logo and Welcome Text */}
@@ -43,7 +50,7 @@ const Login = () => {
         <TouchableOpacity style={styles.rememberMeContainer}>
           <Text style={styles.rememberMeText}>Remember Me</Text>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={handleForgotPassword}>
           <Text style={styles.forgotPasswordText}>Forgot Password</Text>
         </TouchableOpacity>
       </View>
@@ -56,7 +63,7 @@ const Login = () => {
       {/* Sign Up Link */}
       <View style={styles.signUpContainer}>
         <Text style={styles.signUpText}>Don't have an account? </Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
           <Text style={styles.signUpButtonText}>Sign Up</Text>
         </TouchableOpacity>
       </View>

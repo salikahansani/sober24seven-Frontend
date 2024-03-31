@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-const ForgotPassword = ({ navigation }) => {
+const ForgotPassword = () => {
   const [email, setEmail] = useState('');
+  const navigation = useNavigation(); // Get navigation object using useNavigation()
 
+  const handleSendCode = () => {
+    navigation.navigate('ForgotPassword1');
+  };
   return (
     <View style={styles.container}>
     <Image
@@ -24,7 +29,7 @@ const ForgotPassword = ({ navigation }) => {
         />
       </View>
 
-      <TouchableOpacity style={styles.button} onPress={() => {/* Handle sending code */}}>
+      <TouchableOpacity style={styles.button} onPress={handleSendCode}>
         <Text style={styles.buttonText}>Send Code</Text>
       </TouchableOpacity>
 

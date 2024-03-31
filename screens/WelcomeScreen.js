@@ -1,10 +1,14 @@
 import React from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import { Color, Border, FontSize, FontFamily } from "../GlobalStyles";
+import { useNavigation } from "@react-navigation/native";
 
 const WelcomeScreen = () => {
-  // Fonts must be loaded before rendering the app
-  // Consider using a splash screen while fonts are loading
+  const navigation = useNavigation();
+
+  const handleNavigateToSignUp = () => {
+    navigation.navigate('SignUp');
+  };
 
   return (
     <View style={styles.container}>
@@ -29,7 +33,9 @@ const WelcomeScreen = () => {
       </TouchableOpacity>
 
 
-      <TouchableOpacity style={[styles.button, styles.buttonOutline]}>
+      <TouchableOpacity style={[styles.button, styles.buttonOutline]}
+      onPress={handleNavigateToSignUp}
+      >
         <Text style={[styles.buttonText, styles.buttonOutlineText]}>Create Account</Text>
       </TouchableOpacity>
       <Text style={styles.footer}>@2024 SDGP 114</Text>

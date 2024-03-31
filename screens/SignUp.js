@@ -1,5 +1,5 @@
 import * as React from "react";
-import { StyleSheet, View, Text, Pressable } from "react-native";
+import { StyleSheet, View, Text, Pressable,TouchableOpacity} from "react-native";
 import { Image } from "expo-image";
 import { Button } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
@@ -14,20 +14,17 @@ import { FontFamily, FontSize, Color, Border } from "../GlobalStyles";
 const SignUp = () => {
   const navigation = useNavigation();
 
+  // Function to handle navigation to the Login screen
+  const handleNavigateToLogin = () => {
+    navigation.navigate('Login');
+
+  };
+  
+
+
   return (
     <View style={styles.signup}>
       <View style={styles.signupChild} />
-      <View style={styles.alreadyHaveAnAccountParent}>
-        <Text style={[styles.alreadyHaveAn, styles.login1Typo]}>
-          Already have an account ?
-        </Text>
-        <Pressable
-          style={styles.login}
-          onPress={() => navigation.navigate("Login")}
-        >
-          <Text style={[styles.login1, styles.login1Typo]}>Login</Text>
-        </Pressable>
-      </View>
       <Image
         style={[styles.signupItem, styles.signupLayout]}
         contentFit="cover"
@@ -83,17 +80,58 @@ const SignUp = () => {
         phoneNumberLeft={24}
         textColor="#000"
       />
-      <View style={styles.alreadyHaveAnAccountParent}>
-        <Text style={[styles.alreadyHaveAn, styles.login1Typo]}>
-          Already have an account ?
-        </Text>
-        <Pressable
-          style={styles.login}
-          onPress={() => navigation.navigate("Login")}
-        >
-          <Text style={[styles.login1, styles.login1Typo]}>Login</Text>
-        </Pressable>
-      </View>
+      
+      <Text style={[styles.connectWithYour, styles.login1Typo]}>
+        Connect with your friends today!
+      </Text>
+      <Text style={styles.createAnAccount}>Create an account</Text>
+      <GroupComponent
+        email="Email​ Address"
+        sophatleatnintrealive="Enter your email"
+        groupViewPosition="absolute"
+        groupViewTop={419}
+        groupViewLeft={23}
+        groupViewWidth={359}
+        groupViewHeight={67}
+        rectangleViewBorderRadius={5}
+        rectangleViewBorderColor="#c6c6c6"
+        sophatleatnintrealiveColor="#9e9e9e"
+      />
+      <GroupComponent
+        email="Password"
+        sophatleatnintrealive="Please Enter Your Password"
+        groupViewPosition="absolute"
+        groupViewTop={577}
+        groupViewLeft={23}
+        groupViewWidth={359}
+        groupViewHeight={67}
+        rectangleViewBorderRadius={5}
+        rectangleViewBorderColor="#c6c6c6"
+        sophatleatnintrealiveColor="rgba(31, 31, 31, 0.43)"
+      />
+      <Image
+        style={styles.eyefillIcon}
+        contentFit="cover"
+        source={require("../assets/eyefill.png")}
+      />
+      <RememberMe
+        rememberMePosition="absolute"
+        rememberMeTop={662}
+        rememberMeLeft={23}
+      />
+      <ForgotPassword2
+        forgotPassword="Forgot Password"
+        forgotPasswordPosition="absolute"
+        forgotPasswordTop={663}
+        forgotPasswordLeft={268}
+      />
+      <PhoneNumber
+        phoneNumberPosition="absolute"
+        phoneNumberTop={495}
+        phoneNumberLeft={24}
+        textColor="#000"
+      />
+      
       <Text style={[styles.connectWithYour, styles.login1Typo]}>
         Connect with your friends today!
       </Text>
@@ -155,67 +193,9 @@ const SignUp = () => {
           <Text style={[styles.login1, styles.login1Typo]}>Login</Text>
         </Pressable>
       </View>
-      <Text style={[styles.connectWithYour, styles.login1Typo]}>
-        Connect with your friends today!
-      </Text>
-      <Text style={styles.createAnAccount}>Create an account</Text>
-      <GroupComponent
-        email="Email​ Address"
-        sophatleatnintrealive="Enter your email"
-        groupViewPosition="absolute"
-        groupViewTop={419}
-        groupViewLeft={23}
-        groupViewWidth={359}
-        groupViewHeight={67}
-        rectangleViewBorderRadius={5}
-        rectangleViewBorderColor="#c6c6c6"
-        sophatleatnintrealiveColor="#9e9e9e"
-      />
-      <GroupComponent
-        email="Password"
-        sophatleatnintrealive="Please Enter Your Password"
-        groupViewPosition="absolute"
-        groupViewTop={577}
-        groupViewLeft={23}
-        groupViewWidth={359}
-        groupViewHeight={67}
-        rectangleViewBorderRadius={5}
-        rectangleViewBorderColor="#c6c6c6"
-        sophatleatnintrealiveColor="rgba(31, 31, 31, 0.43)"
-      />
-      <Image
-        style={styles.eyefillIcon}
-        contentFit="cover"
-        source={require("../assets/eyefill.png")}
-      />
-      <RememberMe
-        rememberMePosition="absolute"
-        rememberMeTop={662}
-        rememberMeLeft={23}
-      />
-      <ForgotPassword2
-        forgotPassword="Forgot Password"
-        forgotPasswordPosition="absolute"
-        forgotPasswordTop={663}
-        forgotPasswordLeft={268}
-      />
-      <PhoneNumber
-        phoneNumberPosition="absolute"
-        phoneNumberTop={495}
-        phoneNumberLeft={24}
-        textColor="#000"
-      />
-      <View style={styles.alreadyHaveAnAccountParent}>
-        <Text style={[styles.alreadyHaveAn, styles.login1Typo]}>
-          Already have an account ?
-        </Text>
-        <Pressable
-          style={styles.login}
-          onPress={() => navigation.navigate("Login")}
-        >
-          <Text style={[styles.login1, styles.login1Typo]}>Login</Text>
-        </Pressable>
-      </View>
+
+
+      
       <Text style={[styles.connectWithYour, styles.login1Typo]}>
         Connect with your friends today!
       </Text>
@@ -262,17 +242,7 @@ const SignUp = () => {
         phoneNumberLeft={24}
         textColor="#000"
       />
-      <View style={styles.alreadyHaveAnAccountParent}>
-        <Text style={[styles.alreadyHaveAn, styles.login1Typo]}>
-          Already have an account ?
-        </Text>
-        <Pressable
-          style={styles.login}
-          onPress={() => navigation.navigate("Login")}
-        >
-          <Text style={[styles.login1, styles.login1Typo]}>Login</Text>
-        </Pressable>
-      </View>
+      
       <Text style={[styles.connectWithYour, styles.login1Typo]}>
         Connect with your friends today!
       </Text>
@@ -306,7 +276,7 @@ const SignUp = () => {
         contentFit="cover"
         source={require("../assets/eyefill.png")}
       />
-      <Text style={[styles.rememberMe, styles.login1Typo]}>Remember Me</Text>
+    
       <ForgotPassword2
         forgotPassword="Forgot Password"
         forgotPasswordPosition="absolute"
@@ -328,17 +298,7 @@ const SignUp = () => {
         phoneNumberLeft={24}
         textColor="#000"
       />
-      <View style={styles.alreadyHaveAnAccountParent}>
-        <Text style={[styles.alreadyHaveAn, styles.login1Typo]}>
-          Already have an account ?
-        </Text>
-        <Pressable
-          style={styles.login}
-          onPress={() => navigation.navigate("Login")}
-        >
-          <Text style={[styles.login1, styles.login1Typo]}>Login</Text>
-        </Pressable>
-      </View>
+      
       <Text style={[styles.connectWithYour, styles.login1Typo]}>
         Connect with your friends today!
       </Text>
@@ -372,7 +332,7 @@ const SignUp = () => {
         contentFit="cover"
         source={require("../assets/eyefill.png")}
       />
-      <Text style={[styles.rememberMe, styles.login1Typo]}>Remember Me</Text>
+   
       <ForgotPassword2
         forgotPassword="Forgot Password"
         forgotPasswordPosition="absolute"
@@ -564,6 +524,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     backgroundColor: Color.colorAliceblue_300,
   },
+  
 });
 
 export default SignUp;
